@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zahra Zahidah Putri Ruchwijaya — Aspiring Product Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+
+/* ============================================================
+   RESET & BASE
+============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Dark (hero) palette */
+  --dk-bg:           #1a1325;
+  --dk-bg-2:         #221834;
+  --dk-surface:      rgba(255,255,255,0.05);
+  --dk-border:       rgba(255,255,255,0.10);
+
+  /* Light (sections) palette */
+  --lt-bg:           #faf8f5;
+  --lt-bg-2:         #f3efe9;
+  --lt-surface:      #ffffff;
+  --lt-border:       #e8e2d9;
+  --lt-border-soft:  #efe9e0;
+
+  /* Accent — lavender / mauve */
+  --clr-lavender:    #9b7fe8;
+  --clr-lavender-lt: #c4aff5;
+  --clr-lavender-dim:rgba(155,127,232,0.12);
+  --clr-lavender-glow:rgba(155,127,232,0.30);
+  --clr-mauve:       #b08cbf;
+  --clr-rose:        #d4a5c2;
+
+  /* Text */
+  --dk-text:         #f5f0ff;
+  --dk-muted:        rgba(245,240,255,0.55);
+  --lt-text:         #2a2035;
+  --lt-muted:        #7a6e80;
+  --lt-subtle:       #b0a8b5;
+
+  /* Type */
+  --font-display:    'DM Serif Display', serif;
+  --font-body:       'DM Sans', sans-serif;
+
+  /* Layout */
+  --container:       1120px;
+  --section-pad:     6rem;
+  --ease:            cubic-bezier(0.22, 1, 0.36, 1);
+  --dur:             0.3s;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--font-body); background-color: var(--lt-bg); color: var(--lt-text); line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+ul { list-style: none; }
+a { color: inherit; text-decoration: none; }
+
+/* ============================================================
+   UTILITIES
+============================================================ */
+.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 2rem; }
+
+/* Thin decorative line */
+.deco-line {
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(to right, var(--clr-lavender), var(--clr-rose));
+  margin-bottom: 1.25rem;
+}
+.deco-line--center { margin-left: auto; margin-right: auto; }
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 0.7rem 1.6rem; border-radius: 50px;
+  font-family: var(--font-body); font-size: 0.85rem; font-weight: 500;
+  letter-spacing: 0.03em; cursor: pointer;
+  transition: all var(--dur) var(--ease); white-space: nowrap; border: 1px solid transparent;
+}
+.btn--primary {
+  background: linear-gradient(135deg, var(--clr-lavender), var(--clr-mauve));
+  color: #fff; border-color: transparent;
+}
+.btn--primary:hover { box-shadow: 0 4px 24px var(--clr-lavender-glow); transform: translateY(-2px); }
+.btn--ghost-light {
+  background-color: transparent; color: var(--dk-text);
+  border-color: rgba(255,255,255,0.25);
+}
+.btn--ghost-light:hover { border-color: var(--clr-lavender-lt); color: var(--clr-lavender-lt); transform: translateY(-2px); }
+.btn--ghost-dark {
+  background-color: transparent; color: var(--lt-text);
+  border-color: var(--lt-border);
+}
+.btn--ghost-dark:hover { border-color: var(--clr-lavender); color: var(--clr-lavender); transform: translateY(-2px); }
+.btn--sm { padding: 0.45rem 1rem; font-size: 0.78rem; }
+.btn--lg { padding: 0.9rem 2.25rem; font-size: 0.95rem; }
+
+/* ============================================================
+   TAGS
+============================================================ */
+.tag {
+  display: inline-block; padding: 0.2rem 0.65rem; border-radius: 50px;
+  background-color: var(--clr-lavender-dim);
+  color: var(--clr-lavender);
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.02em;
+  border: 1px solid rgba(155,127,232,0.2);
+}
+
+/* ============================================================
+   SECTION (light)
+============================================================ */
+.section { padding: var(--section-pad) 0; }
+.section--alt { background-color: var(--lt-bg-2); }
+
+.section__header { margin-bottom: 3.5rem; }
+.section__header--center { text-align: center; }
+.section__header--center .deco-line { margin-left: auto; margin-right: auto; }
+
+.section__label {
+  display: block; font-size: 0.68rem; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--clr-mauve); margin-bottom: 0.5rem;
+}
+.section__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+  font-weight: 400; color: var(--lt-text); line-height: 1.2;
+}
+
+/* ============================================================
+   NAV
+============================================================ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.1rem 0;
+  background-color: rgba(26, 19, 37, 0.82);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav__inner {
+  max-width: var(--container); margin: 0 auto; padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav__logo {
+  font-family: var(--font-display); font-size: 1.2rem; font-weight: 400;
+  color: var(--dk-text); letter-spacing: 0.04em;
+  transition: color var(--dur) var(--ease);
+}
+.nav__logo:hover { color: var(--clr-lavender-lt); }
+.nav__links { display: flex; align-items: center; gap: 2.25rem; }
+.nav__links a {
+  font-size: 0.82rem; font-weight: 400; color: var(--dk-muted);
+  letter-spacing: 0.04em; transition: color var(--dur) var(--ease); position: relative;
+}
+.nav__links a::after {
+  content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, var(--clr-lavender), var(--clr-rose));
+  transform: scaleX(0); transition: transform var(--dur) var(--ease);
+}
+.nav__links a:hover { color: var(--dk-text); }
+.nav__links a:hover::after { transform: scaleX(1); }
+
+/* ============================================================
+   HERO (dark)
+============================================================ */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column;
+  justify-content: center; padding: 8rem 0 6rem; position: relative;
+  background-color: var(--dk-bg);
+  overflow: hidden;
+}
+
+/* Layered aura glows */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 55% 60% at 15% 80%, rgba(155,127,232,0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 50% at 85% 20%, rgba(212,165,194,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 35% 40% at 55% 55%, rgba(176,140,191,0.08) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+/* Thin horizontal line ornament */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--clr-lavender), var(--clr-rose), transparent);
+  opacity: 0.4;
+}
+
+.hero__inner { max-width: var(--container); width: 100%; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+
+@media (min-width: 901px) {
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 4rem;
+    align-items: center;
+  }
+}
+
+.hero__portrait-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero__portrait {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 
+              0 0 30px rgba(155, 127, 232, 0.15);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.hero__portrait:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 
+              0 0 40px rgba(155, 127, 232, 0.25);
+}
+
+.hero__eyebrow {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.68rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--clr-lavender-lt); margin-bottom: 1.75rem;
+}
+.hero__eyebrow::before {
+  content: '';
+  display: inline-block; width: 24px; height: 1px;
+  background: linear-gradient(to right, var(--clr-lavender), var(--clr-rose));
+}
+
+.hero__name {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8.5vw, 6rem);
+  font-weight: 400; line-height: 1.05;
+  color: var(--dk-text); margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+.hero__name em {
+  font-style: italic;
+  color: var(--clr-lavender-lt);
+}
+
+.hero__tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-weight: 400; font-style: italic;
+  color: var(--dk-muted); line-height: 1.5;
+  margin-bottom: 1.75rem; max-width: 500px;
+}
+
+.hero__description {
+  font-size: 0.95rem; color: var(--dk-muted);
+  max-width: 440px; line-height: 1.8; margin-bottom: 2.75rem;
+}
+
+.hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* Floating thin-line decoration top-right */
+.hero__ornament {
+  position: absolute; top: 20%; right: 8%;
+  display: flex; flex-direction: column; gap: 8px;
+  opacity: 0.25; pointer-events: none;
+}
+.hero__ornament span {
+  display: block; height: 1px;
+  background: linear-gradient(to right, transparent, var(--clr-lavender-lt));
+}
+.hero__ornament span:nth-child(1) { width: 120px; }
+.hero__ornament span:nth-child(2) { width: 80px; }
+.hero__ornament span:nth-child(3) { width: 100px; }
+.hero__ornament span:nth-child(4) { width: 60px; }
+
+/* Scroll indicator */
+.hero__scroll {
+  position: absolute; bottom: 2.5rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.hero__scroll span {
+  font-size: 0.62rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--dk-muted);
+}
+.hero__scroll::after {
+  content: '';
+  display: block; width: 1px; height: 40px;
+  background: linear-gradient(to bottom, var(--clr-lavender), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50%       { opacity: 1;   transform: scaleY(1); }
+}
+
+/* ============================================================
+   ABOUT
+============================================================ */
+.about { background-color: var(--lt-bg); }
+
+.about__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+
+.about__bio p {
+  color: var(--lt-muted); font-size: 0.95rem;
+  margin-bottom: 1.2rem; line-height: 1.85;
+}
+.about__bio p:last-child { margin-bottom: 0; }
+
+.about__block-title {
+  font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--lt-subtle); margin-bottom: 1.1rem;
+}
+
+.about__skills-block { margin-bottom: 2.5rem; }
+
+.skill-list { display: flex; flex-direction: column; }
+.skill-list__item {
+  display: flex; align-items: baseline; gap: 1rem;
+  padding: 0.75rem 0; border-bottom: 1px solid var(--lt-border-soft);
+}
+.skill-list__item:first-child { border-top: 1px solid var(--lt-border-soft); }
+.skill-list__category { font-size: 0.75rem; font-weight: 500; color: var(--lt-subtle); min-width: 88px; flex-shrink: 0; }
+.skill-list__value { font-size: 0.875rem; color: var(--lt-text); }
+
+.edu-item__degree { font-size: 0.975rem; font-weight: 500; color: var(--lt-text); margin-bottom: 0.25rem; }
+.edu-item__institution { font-size: 0.875rem; color: var(--lt-muted); margin-bottom: 0.2.rem; }
+.edu-item__year { font-size: 0.78rem; color: var(--lt-subtle); }
+
+/* ============================================================
+   EXPERIENCE
+============================================================ */
+.experience { background-color: var(--lt-bg-2); }
+
+.timeline { position: relative; display: flex; flex-direction: column; }
+
+/* Thin vertical line */
+.timeline::before {
+  content: ''; position: absolute;
+  left: 9px; top: 6px; bottom: 6px; width: 1px;
+  background: linear-gradient(to bottom, var(--clr-lavender), var(--clr-rose), transparent);
+  opacity: 0.4;
+}
+
+.timeline__item {
+  display: grid; grid-template-columns: 20px 1fr;
+  gap: 2rem; padding-bottom: 2.5rem; position: relative;
+}
+.timeline__item:last-child { padding-bottom: 0; }
+
+/* Circle dot */
+.timeline__marker {
+  width: 8px; height: 8px; border-radius: 50%; margin-top: 7px;
+  background: linear-gradient(135deg, var(--clr-lavender), var(--clr-rose));
+  box-shadow: 0 0 0 3px rgba(155,127,232,0.15);
+  flex-shrink: 0; position: relative; z-index: 1;
+}
+
+.timeline__content {
+  padding: 1.75rem 2rem;
+  border-radius: 16px;
+  border: 1px solid var(--lt-border);
+  background-color: var(--lt-surface);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.timeline__content:hover {
+  border-color: rgba(155,127,232,0.35);
+  box-shadow: 0 6px 28px rgba(155,127,232,0.09);
+  transform: translateY(-2px);
+}
+
+.timeline__meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.65rem; }
+.timeline__duration { font-size: 0.75rem; color: var(--lt-subtle); }
+.timeline__type {
+  font-size: 0.62rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--clr-lavender); background-color: var(--clr-lavender-dim);
+  padding: 0.18rem 0.55rem; border-radius: 50px;
+}
+
+.timeline__role { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; color: var(--lt-text); margin-bottom: 0.25rem; }
+.timeline__org { font-size: 0.82rem; color: var(--lt-muted); margin-bottom: 1rem; }
+.timeline__desc { font-size: 0.875rem; color: var(--lt-muted); line-height: 1.8; margin-bottom: 1rem; }
+
+.timeline__achievements { margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 0.45rem; }
+.timeline__achievements li {
+  font-size: 0.845rem; color: var(--lt-text); padding-left: 1rem; position: relative;
+}
+.timeline__achievements li::before {
+  content: ''; position: absolute; left: 0; top: 0.6em;
+  width: 4px; height: 1px;
+  background: linear-gradient(to right, var(--clr-lavender), var(--clr-rose));
+}
+
+.timeline__tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+
+/* ============================================================
+   PROJECTS
+============================================================ */
+.projects { background-color: var(--lt-bg); }
+.projects__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+
+/* Featured: image + body side by side */
+.project-card--featured { grid-column: span 1; display: grid; grid-template-columns: 1fr 1fr; }
+
+.project-card {
+  border: 1px solid var(--lt-border);
+  border-radius: 16px; background-color: var(--lt-surface);
+  overflow: hidden;
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.project-card:hover {
+  border-color: rgba(155,127,232,0.35);
+  box-shadow: 0 8px 36px rgba(155,127,232,0.10);
+  transform: translateY(-3px);
+}
+
+.project-card__image { min-height: 200px; overflow: hidden; }
+.project-card__image-inner { width: 100%; height: 100%; min-height: 200px; }
+
+/* Soft aura gradients for featured project thumbnails */
+.project-card__image-inner--1 {
+  background:
+    radial-gradient(ellipse 70% 70% at 30% 40%, rgba(155,127,232,0.45) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 80% 75%, rgba(212,165,194,0.30) 0%, transparent 55%),
+    #f3efe9;
+}
+.project-card__image-inner--2 {
+  background:
+    radial-gradient(ellipse 60% 65% at 65% 35%, rgba(176,140,191,0.40) 0%, transparent 58%),
+    radial-gradient(ellipse 45% 45% at 20% 70%, rgba(155,127,232,0.25) 0%, transparent 50%),
+    #f3efe9;
+}
+
+/* Thin top border accent on featured */
+.project-card--featured .project-card__image::before {
+  content: ''; display: block; height: 2px;
+  background: linear-gradient(to right, var(--clr-lavender), var(--clr-rose), transparent);
+}
+
+.project-card__body { padding: 1.75rem; display: flex; flex-direction: column; }
+.project-card__number { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lt-subtle); margin-bottom: 0.55rem; display: block; }
+.project-card__title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; color: var(--lt-text); margin-bottom: 0.65rem; }
+.project-card__desc { font-size: 0.855rem; color: var(--lt-muted); line-height: 1.78; margin-bottom: 1.1rem; flex: 1; }
+.project-card__tech { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.1rem; }
+.project-card__links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+/* ============================================================
+   CONTACT
+============================================================ */
+.contact { background-color: var(--lt-bg-2); }
+.contact__inner { max-width: 600px; margin: 0 auto; text-align: center; }
+.contact__lead { font-size: 0.95rem; color: var(--lt-muted); line-height: 1.85; margin-bottom: 2.25rem; }
+
+.contact__links {
+  display: flex; flex-direction: column;
+  margin-top: 2.75rem;
+  border: 1px solid var(--lt-border); border-radius: 14px; overflow: hidden;
+  background-color: var(--lt-surface);
+}
+.contact__link {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--lt-border-soft);
+  transition: background-color var(--dur) var(--ease);
+}
+.contact__link:last-child { border-bottom: none; }
+.contact__link:hover { background-color: rgba(155,127,232,0.05); }
+.contact__link-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lt-subtle); min-width: 75px; text-align: left; }
+.contact__link-value { font-size: 0.875rem; color: var(--lt-text); transition: color var(--dur) var(--ease); }
+.contact__link:hover .contact__link-value { color: var(--clr-lavender); }
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.footer { padding: 2rem 0; border-top: 1px solid var(--lt-border); background-color: var(--lt-bg); }
+.footer__inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.footer__copy { font-size: 0.78rem; color: var(--lt-subtle); }
+.footer__nav { display: flex; gap: 1.75rem; flex-wrap: wrap; }
+.footer__nav a { font-size: 0.78rem; color: var(--lt-subtle); transition: color var(--dur) var(--ease); }
+.footer__nav a:hover { color: var(--clr-lavender); }
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 900px) {
+  :root { --section-pad: 5rem; }
+  .about__grid { grid-template-columns: 1fr; gap: 3rem; }
+  .projects__grid { grid-template-columns: 1fr; }
+  .project-card--featured { grid-template-columns: 1fr; grid-column: span 1; }
+  .project-card__image, .project-card__image-inner { min-height: 180px; }
+  .hero__ornament { display: none; }
+  .hero__portrait-container { margin-top: 3.5rem; }
+  .hero__portrait { max-width: 280px; }
+}
+@media (max-width: 640px) {
+  :root { --section-pad: 4rem; }
+  .nav__links { gap: 1.25rem; }
+  .nav__links a { font-size: 0.78rem; }
+  .hero { padding: 7rem 0 5rem; }
+  .hero__actions { flex-direction: column; align-items: flex-start; }
+  .timeline__item { grid-template-columns: 18px 1fr; gap: 1.25rem; }
+  .timeline__content { padding: 1.25rem 1.25rem; }
+  .footer__inner { flex-direction: column; align-items: center; text-align: center; }
+  .footer__nav { justify-content: center; gap: 1.25rem; }
+  .contact__link { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
+}
+@media (max-width: 420px) {
+  .nav__links { gap: 0.85rem; }
+  .project-card__links { flex-direction: column; }
+  .project-card__links .btn { width: 100%; }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="#home" class="nav__logo">Zahra Zahidah</a>
+      <ul class="nav__links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero__ornament" aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <div class="hero__inner">
+      <div class="hero__content">
+        <span class="hero__eyebrow">Aspiring Product Manager</span>
+        <h1 class="hero__name">Zahra Zahidah<br /><em>Putri Ruchwijaya</em></h1>
+        <p class="hero__tagline">Bridging technology, business, and user-centered design<br />to build impactful digital products.</p>
+        <p class="hero__description">
+          I am a second-year undergraduate student majoring in Information Systems and Technology at Institut Teknologi Bandung (ITB), passionate about Product Management, digital products, user-centered design, and technology-driven innovation.
+        </p>
+        <div class="hero__actions">
+          <a href="#projects" class="btn btn--primary btn--lg">View Projects</a>
+          <a href="#contact" class="btn btn--ghost-light">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero__portrait-container">
+        <img class="hero__portrait" src="Foto_Zahra Zahidah.jpeg" alt="Zahra Zahidah Putri Ruchwijaya" />
+      </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true">
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section about">
+    <div class="container">
+      <div class="section__header">
+        <span class="deco-line"></span>
+        <span class="section__label">Profile</span>
+        <h2 class="section__title">About Me</h2>
+      </div>
+      <div class="about__grid">
+        <div class="about__bio">
+          <p>I am Zahra Zahidah Putri Ruchwijaya, a second-year Information Systems and Technology student at Institut Teknologi Bandung. Passionate about Product Management, I am dedicated to bridging the gap between user needs and technical capabilities to build digital products that make a difference.</p>
+          <p>I am deeply interested in constructing user-focused digital products, combining my studies in technology with a strong curiosity for business strategy, UX design, and product development. I enjoy learning how to align engineering efforts with strategic product goals to create seamless user experiences.</p>
+          <p>Currently, I am looking for opportunities to grow, collaborate, and contribute through real-world projects, internships, and cross-functional partnerships where I can apply my knowledge and learn from seasoned professionals.</p>
+        </div>
+        <div class="about__sidebar">
+          <div class="about__skills-block">
+            <p class="about__block-title">Skills & Expertise</p>
+            <ul class="skill-list">
+              <li class="skill-list__item"><span class="skill-list__category">Management</span><span class="skill-list__value">Product Strategy, Agile & Scrum, User Research, Product Roadmap</span></li>
+              <li class="skill-list__item"><span class="skill-list__category">Design & UX</span><span class="skill-list__value">User-Centered Design, Wireframing, Figma, User Flows</span></li>
+              <li class="skill-list__item"><span class="skill-list__category">Technology</span><span class="skill-list__value">Information Systems, Software Development, Web Technologies</span></li>
+              <li class="skill-list__item"><span class="skill-list__category">Tools</span><span class="skill-list__value">Figma, Miro, Trello, Jira, Git, VS Code</span></li>
+            </ul>
+          </div>
+          <div class="about__edu-block">
+            <p class="about__block-title">Education</p>
+            <div class="edu-item">
+              <p class="edu-item__degree">B.Sc. in Information Systems and Technology</p>
+              <p class="edu-item__institution">Institut Teknologi Bandung</p>
+              <p class="edu-item__year">2024 — Present</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section experience">
+    <div class="container">
+      <div class="section__header">
+        <span class="deco-line"></span>
+        <span class="section__label">Background</span>
+        <h2 class="section__title">Experience</h2>
+      </div>
+      <div class="timeline">
+
+        <article class="timeline__item">
+          <div class="timeline__marker" aria-hidden="true"></div>
+          <div class="timeline__content">
+            <div class="timeline__meta">
+              <span class="timeline__duration">April 2026 – February 2027</span>
+              <span class="timeline__type">Organization</span>
+            </div>
+            <h3 class="timeline__role">Vice Head of External Relations Division</h3>
+            <p class="timeline__org">Himpunan Mahasiswa Informatika (HMIF) ITB · Bandung, Indonesia</p>
+            <p class="timeline__desc">Directed external relations and stakeholder management for the student association, serving as the central point of contact for external academic, student, and corporate partners.</p>
+            <ul class="timeline__achievements">
+              <li>Served as the primary liaison between the student association and external stakeholders, including student organizations, academic institutions, and corporate partners to align mutual objectives</li>
+              <li>Spearheaded the planning, cross-functional coordination, and seamless execution of joint programs, driving external collaborations and strategic partnerships</li>
+              <li>Negotiated and managed key partnerships, maintaining professional relations to secure resources and support long-term organizational development</li>
+            </ul>
+            <div class="timeline__tags">
+              <span class="tag">Stakeholder Management</span>
+              <span class="tag">Strategic Partnerships</span>
+              <span class="tag">Program Coordination</span>
+              <span class="tag">Cross-Functional Collaboration</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="timeline__item">
+          <div class="timeline__marker" aria-hidden="true"></div>
+          <div class="timeline__content">
+            <div class="timeline__meta">
+              <span class="timeline__duration">October 2025 – October 2026</span>
+              <span class="timeline__type">Organization</span>
+            </div>
+            <h3 class="timeline__role">Manager of Research and Development</h3>
+            <p class="timeline__org">StudentsxCEOs Bandung · Bandung, Indonesia</p>
+            <p class="timeline__desc">Led user-centered research, market analysis, and product-style program alignment to deliver high-value initiatives tailored to target audience demographics.</p>
+            <ul class="timeline__achievements">
+              <li>Conducted comprehensive market research and target audience analysis, translating insights into actionable program requirements that aligned with user needs</li>
+              <li>Formulated data-driven recommendations and strategic insights to optimize project planning, resource allocation, and continuous quality improvement</li>
+              <li>Monitored and evaluated end-to-end project execution, ensuring strict alignment with core objectives, value propositions, and market demands</li>
+              <li>Supervised and drove key flagship initiatives including SxConnect, Meet the CEO, and Behind the Scene, ensuring smooth operations and high-impact outcomes</li>
+            </ul>
+            <div class="timeline__tags">
+              <span class="tag">Market & User Research</span>
+              <span class="tag">Data-Driven Strategy</span>
+              <span class="tag">Project Lifecycle</span>
+              <span class="tag">Program Management</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="timeline__item">
+          <div class="timeline__marker" aria-hidden="true"></div>
+          <div class="timeline__content">
+            <div class="timeline__meta">
+              <span class="timeline__duration">November 2025 – May 2026</span>
+              <span class="timeline__type">Organization</span>
+            </div>
+            <h3 class="timeline__role">Participant Affairs Staff</h3>
+            <p class="timeline__org">TEDxITB 9.0 · Bandung, Indonesia</p>
+            <p class="timeline__desc">Managed key stakeholder communications and guest relations, facilitating the selection, invitation, and onboarding of prominent industry speakers and guests.</p>
+            <ul class="timeline__achievements">
+              <li>Identified, vetted, and engaged potential speakers, key opinion leaders, and industry professionals to match the event's strategic themes and content objectives</li>
+              <li>Established and managed the end-to-end communication funnel for all external invitees regarding speaker schedules and participation logistics</li>
+              <li>Cultivated professional relationships and ensured seamless coordination with distinguished guests throughout the entire pre-event and event lifecycle</li>
+            </ul>
+            <div class="timeline__tags">
+              <span class="tag">Stakeholder Communication</span>
+              <span class="tag">Speaker Relations</span>
+              <span class="tag">Event Coordination</span>
+              <span class="tag">Outreach Strategy</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section projects">
+    <div class="container">
+      <div class="section__header">
+        <span class="deco-line"></span>
+        <span class="section__label">Work</span>
+        <h2 class="section__title">Selected Projects</h2>
+      </div>
+      <div class="projects__grid">
+
+        <article class="project-card project-card--featured">
+          <div class="project-card__image" aria-hidden="true">
+            <div class="project-card__image-inner project-card__image-inner--1"></div>
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__number">01</span>
+            <h3 class="project-card__title">CoSpace</h3>
+            <p class="project-card__desc">Designed and built a collaborative task management platform solving coordination pain points for student teams. Conducted user research to design intuitive project boards, role-based access control, and seamless workspaces.</p>
+            <div class="project-card__tech"><span class="tag">Product Design</span><span class="tag">Next.js 15</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span></div>
+            <div class="project-card__links"><a href="#" class="btn btn--sm btn--primary">Live Demo</a><a href="#" class="btn btn--sm btn--ghost-dark">GitHub</a></div>
+          </div>
+        </article>
+
+        <article class="project-card project-card--featured">
+          <div class="project-card__image" aria-hidden="true">
+            <img src="AKKD Solutions.png" alt="SPARKS" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__number">02</span>
+            <h3 class="project-card__title">SPARKS</h3>
+            <p class="project-card__desc">Led the product concept and development of a smart parking management system using YOLOv8 computer vision and IoT. Designed the operator web dashboard focusing on key data visualizations and user flow.</p>
+            <div class="project-card__tech"><span class="tag">Product Strategy</span><span class="tag">UX Design</span><span class="tag">React</span><span class="tag">Python</span></div>
+            <div class="project-card__links"><a href="#" class="btn btn--sm btn--primary">Live Demo</a><a href="#" class="btn btn--sm btn--ghost-dark">GitHub</a></div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card__body">
+            <span class="project-card__number">03</span>
+            <h3 class="project-card__title">KitchenBuddy</h3>
+            <p class="project-card__desc">Designed and developed an inventory tracking product focusing on reducing kitchen food waste. Implemented user-centric freshness alerts, an activity log, and an intuitive stock tracking interface.</p>
+            <div class="project-card__tech"><span class="tag">Product Design</span><span class="tag">UX / UI</span><span class="tag">Java</span><span class="tag">SQLite</span></div>
+            <div class="project-card__links"><a href="#" class="btn btn--sm btn--ghost-dark">GitHub</a></div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card__body">
+            <span class="project-card__number">04</span>
+            <h3 class="project-card__title">AutoFeeder ESP32</h3>
+            <p class="project-card__desc">Created an IoT pet care product solving feeding scheduling challenges. Engineered weight monitoring and food level detection with real-time telemetry dashboards for pet owners.</p>
+            <div class="project-card__tech"><span class="tag">IoT Product</span><span class="tag">C++</span><span class="tag">MQTT</span><span class="tag">ThingsBoard</span></div>
+            <div class="project-card__links"><a href="#" class="btn btn--sm btn--ghost-dark">GitHub</a></div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card__body">
+            <span class="project-card__number">05</span>
+            <h3 class="project-card__title">DCT Watermarking</h3>
+            <p class="project-card__desc">Researched and built a digital watermarking tool to address media copyright protection concerns. Evaluated robust extraction algorithms across varying image compression factors.</p>
+            <div class="project-card__tech"><span class="tag">Data Security</span><span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Colab</span></div>
+            <div class="project-card__links"><a href="#" class="btn btn--sm btn--ghost-dark">GitHub</a></div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card__body">
+            <span class="project-card__number">06</span>
+            <h3 class="project-card__title">Hospital Reservation System</h3>
+            <p class="project-card__desc">Authored comprehensive product requirements (SRS), system architecture diagrams, and UML specifications for a healthcare platform. Developed an interactive prototype featuring a clean FXML interface.</p>
+            <div class="project-card__tech"><span class="tag">Product Requirements</span><span class="tag">SRS / PRD</span><span class="tag">UML</span><span class="tag">Java</span></div>
+            <div class="project-card__links"><a href="#" class="btn btn--sm btn--ghost-dark">GitHub</a></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <div class="contact__inner">
+        <div class="section__header section__header--center">
+          <span class="deco-line deco-line--center"></span>
+          <span class="section__label">Contact</span>
+          <h2 class="section__title">Get in Touch</h2>
+        </div>
+        <p class="contact__lead">I am open to internship opportunities, collaborative projects, and conversations about Product Management. If you have something in mind, feel free to reach out.</p>
+        <a href="mailto:zahrazahidahp@gmail.com" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">Send an Email</a>
+        <div class="contact__links">
+          <a href="mailto:zahrazahidahp@gmail.com" target="_blank" rel="noopener noreferrer" class="contact__link">
+            <span class="contact__link-label">Email</span>
+            <span class="contact__link-value">zahrazahidahp@gmail.com</span>
+          </a>
+          <a href="https://www.linkedin.com/in/zahra-ruchwijaya" target="_blank" rel="noopener noreferrer" class="contact__link">
+            <span class="contact__link-label">LinkedIn</span>
+            <span class="contact__link-value">linkedin.com/in/zahra-ruchwijaya</span>
+          </a>
+          <a href="https://github.com/settuce-c" target="_blank" rel="noopener noreferrer" class="contact__link">
+            <span class="contact__link-label">GitHub</span>
+            <span class="contact__link-value">github.com/settuce-c</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">&copy; 2026 Zahra Zahidah Putri Ruchwijaya. All rights reserved.</p>
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
